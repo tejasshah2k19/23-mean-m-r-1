@@ -1,0 +1,9 @@
+1. user define -- user majuri 
+2. internal -- node majuri
+3. external -- third party majuri
+
+
+
+var calc = require("./calc")
+var http = require("http")
+var express = require("express")  -> package.json
