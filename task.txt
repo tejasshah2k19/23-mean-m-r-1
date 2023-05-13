@@ -23,5 +23,56 @@ REST Api
 
 
 REST CLIENT -> api consume -> postman 
+----------------------------------------------
 
+api 
+
+JAVA API
+
+JDBC API
+
+SOAP API  -> XML 
+
+        <movies>
+            <movie>
+                <name>TheKeralaStory</name>
+            </movie>
+            <movie>
+                <name>TheKeralaStory</name>
+            </movie>
+        </movies>
+
+REST API  -> JSON 
+{
+    "key":"value"
+}
+
+movies:{
+    [
+        movie:{
+               "name":"X" 
+        },
+        movie:{
+
+        }
+    ]
+}
+
+
+Gmaps API 
+  REST API 
+
+1) input json output json 
+2) new  POST 
+3) modify PUT 
+4) destroy DELETE 
+5) read  GET 
+
+
+------------------------------------------
+
+USER -> sessionController -> 
+                    signup()
+                    login()  email,password -> login  | error 
+                    listUsers()
 

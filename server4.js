@@ -6,8 +6,8 @@ const app = express()
 
 //middleware 
 //bodyparser 
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+app.use(express.urlencoded({extended:true})) //form-data browser  
+app.use(express.json()) // json-data -> ios android 
 
 
 app.post("/add",royalCalc.add)
