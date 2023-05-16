@@ -76,3 +76,23 @@ USER -> sessionController ->
                     login()  email,password -> login  | error 
                     listUsers()
 
+
+------------------------------------------
+
+product 
+        productId 
+        name 
+        price 
+        qty 
+
+addProduct
+getAllProducts
+removeProductById  
+viewProductById 
+
+
+
+
+
+
+
