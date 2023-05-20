@@ -1,0 +1,80 @@
+install mongodb community server 5.X version 
+
+make sure to install 
+
+
+mongodb -> database -> 
+
+                sql -> format -> relational -> table -> 
+                            row column field record 
+
+                noSql -> mongodb 
+                        -> format -> collection -> document 
+
+
+            table --- collection 
+            record --- document 
+            nodatatype
+            column fix 
+            unstructured 
+
+create table users( 
+    userId int,
+    firstName varchar(30),
+    email varchar(30)
+)
+
+collection
+    document -> users 
+        userId,firstName,email 
+        userId,firstName,email,lastName 
+        userId,firstName,email,password 
+        json data  
+        key:value 
+
+
+---------------------------------
+open cmd 
+type mongo 
+
+now lets use mean23 database 
+
+use mean23 
+
+create collection --table 
+db.createCollection("users")
+
+add 1 document--record in collection--table
+db.users.insertOne({"name":"ram","email":"ram@gmail.com","password":"12345"})
+
+we will get acknowledgement with _id primary key 
+so every document will get primary key as _id with ObjectID as data type
+
+now lets read data from collection 
+db.users.find() 
+db.users.find().pretty()
+
+
+
+db.users.insertMany([
+    {"firstName":"max","email":"max@well.com"},
+    {"firstName":"lucifer","email":"lucifer@well.com"},
+    { "firstName":"citadel","email":"citadel@well.com"}  
+])
+
+
+db.users.find()
+db.users.find({},{})
+
+ 
+db.users.find({},{firstName:1})  firstName _id 
+
+db.users.find({},{firstName:1,_id:0})  firstName _id 
+
+db.users.deleteOne({_id:"6468c5a73aa02fbe89c2f8e0"})
+
+db.users.deleteMany()
+
+
+
+
