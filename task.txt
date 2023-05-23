@@ -92,6 +92,30 @@ viewProductById
 
 
 
+direct -> 
+
+mongoose -> 
+
+mongodb -> schema less ->  
+
+users -> 1) email firstname 
+        2) firstname email password 
+        3) firstName email password address 
+
+column - data type - validation
+
+firstname : digit "1213"
+firstnamme 
+
+validation -> uniq , required , 
+
+
+
+
+
+
+
+
 
 
 

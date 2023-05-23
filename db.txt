@@ -68,12 +68,138 @@ db.users.find({},{})
 
  
 db.users.find({},{firstName:1})  firstName _id 
-
 db.users.find({},{firstName:1,_id:0})  firstName _id 
 
 db.users.deleteOne({_id:"6468c5a73aa02fbe89c2f8e0"})
-
 db.users.deleteMany()
+
+ 
+
+db.createCollection("emp")
+
+db.emp.insert([
+    {name:"ram",city:"ahd",salary:10000,age:25},
+    {name:"shyam",city:"ahd",salary:15000,age:35},
+    {name:"prisha",city:"surat",salary:20000,age:28},
+    {name:"ganshyam",city:"baroda",salary:10000,age:45},
+    {name:"ravan",city:"bharuch",salary:50000,age:55} 
+])
+
+
+update emp set salary = 170000 where name = 'ram' 
+
+db.emp.updateOne({name:"ram"},{ $set :{ salary:170000}  })
+
+
+db.emp.updateOne({name:"ram"},{ $set :{ salary:170000 , age:35}  })
+
+
+db.emp.updateOne({name:"ram1"},{ $set :{ salary:170000 , age:35}  },{upsert:true})
+
+-----------------------------------------------------------------------------------
+
+login 
+    email and password 
+
+
+ db.emp.find({email:"ram@gmail.com"})
+
+
+OPERATOR 
+
+db.emp.find({
+    salary :{ $gt:15000 } 
+})
+
+
+
+db.emp.find({
+    salary :{ $lt:15000 } 
+})
+
+
+db.emp.find({
+    salary :{ $gte:15000 } 
+})
+
+
+db.emp.find({
+    salary :{ $lte:15000 } 
+})
+
+
+
+db.emp.find({
+    salary :{ $eq:15000 } 
+})
+
+
+db.emp.find({
+    salary :{ $ne:15000 } 
+})
+
+
+db.emp.find({
+    $and:[
+        {salary:{$gte : 15000}},
+        {salary:{$lte : 50000}}
+    ]   
+})
+
+
+
+db.emp.find({
+    $or:[
+        {city:{$eq : 'ahd'}},
+        {salary:{$gte : 50000}}
+    ]   
+})
+
+
+db.emp.find({
+      city :  {  $in : ["ahd","surat"] }
+})
+
+
+
+db.emp.find({
+      City :  {  $in : ["ahd","surat"] }
+})
+
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
