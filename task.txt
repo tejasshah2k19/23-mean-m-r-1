@@ -110,7 +110,16 @@ firstnamme
 validation -> uniq , required , 
 
 
+semantic version 
+ 7 -> major 
+ 4 -> miner 
+ 2 -> patch 
 
+^7.4.2 => 7.X  [ minor version ]
+
+~7.4.2 => 7.4.X   [ patch version ]
+
+7.4.2 => exact 
 
 
 

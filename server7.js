@@ -11,9 +11,13 @@ app.use(express.json())
 mongoose.connect("mongodb://127.0.0.1:27017/mean23").then( () => {
     console.log("dbConnected...");
 })
-
+ 
 
 app.post("/addproduct2",productController.addProduct)
+app.get("/products",productController.getAllProducts)
+app.get("/product/:productId",productController.getProductById)
+app.delete("/product/:productId",productController.deleteProductById)
+
 
 
 
