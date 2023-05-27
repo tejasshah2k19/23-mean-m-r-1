@@ -8,14 +8,14 @@ module.exports.addProduct = function (req, res) {
     let price = req.body.price
     let qty = req.body.qty
 
-    let product = new  ProductModel({
-        "productName":productName,
-        "price":price,
-        "qty":qty
+    let product = new ProductModel({
+        "productName": productName,
+        "price": price,
+        "qty": qty
     });
 
     product.save();
-    
+
     res.json({ "msg": "Product Added", "data": product, "rcode": 200 })
 }
 
@@ -33,32 +33,61 @@ module.exports.addProduct = function (req, res) {
 // }
 
 //nodeJs -> singlethread -> async 
-module.exports.getAllProducts = function(req,res){
-    ProductModel.find().then((data)=>{
-        res.json({"msg":"Product list","data":data,"rcode":200})  
-    }).catch((err)=>{
-        res.json({"msg":"SMW","rcode":-9,"data":err})
-    })
-  }
-  
-  //getprodcut/1 
- module.exports.getProductById = function(req,res){
-    let productId = req.params.productId 
-    ProductModel.findById({_id:productId}).then((data)=>{
-        res.json({"msg":"Product Ret","data":data,"rcode":200})  
-    }).catch((err)=>{
-        res.json({"msg":"SMW","rcode":-9,"data":err})  
-    })
- } 
-
- //deletebyid 
-module.exports.deleteProductById = function(req,res){
-    let productId = req.params.productId
-
-    ProductModel.findByIdAndDelete({_id:productId}).then((data)=>{
-        res.json({"msg":"Product Deleted","data":data,"rcode":200})  
-    }).catch((err)=>{
-        res.json({"msg":"SMW","rcode":-9,"data":err})  
+module.exports.getAllProducts = function (req, res) {
+    ProductModel.find().then((data) => {
+        res.json({ "msg": "Product list", "data": data, "rcode": 200 })
+    }).catch((err) => {
+        res.json({ "msg": "SMW", "rcode": -9, "data": err })
     })
 }
 
+//getprodcut/1 
+module.exports.getProductById = function (req, res) {
+    let productId = req.params.productId
+    ProductModel.findById({ _id: productId }).then((data) => {
+        res.json({ "msg": "Product Ret", "data": data, "rcode": 200 })
+    }).catch((err) => {
+        res.json({ "msg": "SMW", "rcode": -9, "data": err })
+    })
+}
+
+//deletebyid 
+module.exports.deleteProductById = function (req, res) {
+    let productId = req.params.productId
+
+    ProductModel.findByIdAndDelete({ _id: productId }).then((data) => {
+        res.json({ "msg": "Product Deleted", "data": data, "rcode": 200 })
+    }).catch((err) => {
+        res.json({ "msg": "SMW", "rcode": -9, "data": err })
+    })
+}
+
+
+module.exports.filterProducts = function (req, res) {
+    let minPrice = req.body.minPrice
+    let maxPrice = req.body.maxPrice
+
+    ProductModel.find({
+        $and: [
+            {
+                price: {
+                    $gt: minPrice
+                }
+            },
+            {
+                price: {
+                    $lt: maxPrice
+                }
+            }
+        ]
+
+    }).then((data) => {
+        if (data.length == 0) {
+            res.json({ "msg": "No Data Found ", "data": req.body, "rcode": -9 })
+        } else {
+            res.json({ "msg": "Product filter ", "data": data, "rcode": 200 })
+        }
+    }).catch((err) => {
+        res.json({ "msg": "SMW ", "data": err, "rcode": -9 })
+    })
+}
