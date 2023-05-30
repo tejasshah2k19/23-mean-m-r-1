@@ -11,3 +11,11 @@ module.exports.addCategory = function(req,res){
         res.json({"msg":"SMW ","data":err,"rcode":-9})  
     }))
 }
+
+module.exports.getAllCategory = function(req,res){
+    CategoryModel.find().then((data)=>{
+        res.json({"msg":"categories retrived ..","data":data,"rcode":200})
+    }).catch((err)=>{
+
+    })
+}

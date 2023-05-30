@@ -7,11 +7,13 @@ module.exports.addProduct = function (req, res) {
     let productName = req.body.productName
     let price = req.body.price
     let qty = req.body.qty
+    let categoryId = req.body.categoryId 
 
     let product = new ProductModel({
         "productName": productName,
         "price": price,
-        "qty": qty
+        "qty": qty,
+        "categoryId":categoryId 
     });
 
     product.save();
@@ -34,7 +36,7 @@ module.exports.addProduct = function (req, res) {
 
 //nodeJs -> singlethread -> async 
 module.exports.getAllProducts = function (req, res) {
-    ProductModel.find().then((data) => {
+    ProductModel.find().populate("categoryId").exec().then((data) => {
         res.json({ "msg": "Product list", "data": data, "rcode": 200 })
     }).catch((err) => {
         res.json({ "msg": "SMW", "rcode": -9, "data": err })
