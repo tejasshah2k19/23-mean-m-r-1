@@ -20,6 +20,7 @@ app.get("/products",productController.getAllProducts)
 app.get("/product/:productId",productController.getProductById)
 app.delete("/product/:productId",productController.deleteProductById)
 app.post("/products/filter",productController.filterProducts)
+app.put("/product",productController.updateProduct)
 
 //slider - filter 
 
@@ -29,9 +30,7 @@ app.post("/products/filter",productController.filterProducts)
 
 //category routes 
 app.post("/category",categoryController.addCategory)
-app.get("/categories",categoryController.getAllCategory)
-
-
+app.get("/categories",categoryController.getAllCategory) 
 
 app.listen(9999)
 
