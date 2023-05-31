@@ -144,6 +144,15 @@ equity {_id,companyName,symbol,ISINCode,fk:industry,price,52wH,52wL} | industry{
 
 ---------------------------------------------------------------
 
+root_dir 
+    src
+        app 
+            controller 
+            service 
+            model 
+            config 
+            script 
+                
 
 
 
