@@ -122,7 +122,27 @@ semantic version
 7.4.2 => exact 
 
 
+---------------------------------------------------------------
 
+
+equity {_id,companyName,symbol,ISINCode,fk:industry,price,52wH,52wL} | industry{_id,name} 
+
+
+1) getAllScripts 
+    
+2) addScript  { read csv -> add all 50 data into db }
+
+3) getScriptBySymbol { SBIN } => exact SBIN 
+
+4) getScriptBySymbols { SB } => starts with SB 
+
+5) deleteBySymbol* { SBIN }
+
+6) updateBySymbol* { SBIN }
+
+
+
+---------------------------------------------------------------
 
 
 

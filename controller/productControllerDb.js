@@ -8,7 +8,7 @@ module.exports.addProduct = function (req, res) {
     let price = req.body.price
     let qty = req.body.qty
     let categoryId = req.body.categoryId 
-
+    
     let product = new ProductModel({
         "productName": productName,
         "price": price,
