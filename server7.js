@@ -2,7 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const productController = require("./controller/productControllerDb")
 const categoryController = require("./controller/categoryController")
-
+const industryController = require("./controller/industryController")
 
 const app = express()
 
@@ -31,6 +31,9 @@ app.put("/product",productController.updateProduct)
 //category routes 
 app.post("/category",categoryController.addCategory)
 app.get("/categories",categoryController.getAllCategory) 
+
+//industry Routes 
+app.post("/industry",industryController.uploadIndustry) 
 
 app.listen(9999)
 

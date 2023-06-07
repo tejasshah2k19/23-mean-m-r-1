@@ -124,8 +124,8 @@ semantic version
 
 ---------------------------------------------------------------
 
-
-equity {_id,companyName,symbol,ISINCode,fk:industry,price,52wH,52wL} | industry{_id,name} 
+industry{_id,name} 
+equity {_id,companyName,symbol,ISINCode,fk:industry,price,52wH,52wL} 
 
 
 1) getAllScripts 
@@ -153,7 +153,10 @@ root_dir
             config 
             script 
                 
+ 
 
+-----------------------------------------------------------------
+npm i csv-reader
 
 
 
