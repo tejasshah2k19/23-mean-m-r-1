@@ -1,4 +1,3 @@
-Company Name,Industry,Symbol,Series,ISIN Code
 Adani Enterprises Ltd.,Metals & Mining,ADANIENT,EQ,INE423A01024
 Adani Ports and Special Economic Zone Ltd.,Services,ADANIPORTS,EQ,INE742F01042
 Apollo Hospitals Enterprise Ltd.,Healthcare,APOLLOHOSP,EQ,INE437A01024
@@ -49,3 +48,4 @@ Titan Company Ltd.,Consumer Durables,TITAN,EQ,INE280A01028
 UPL Ltd.,Chemicals,UPL,EQ,INE628A01036
 UltraTech Cement Ltd.,Construction Materials,ULTRACEMCO,EQ,INE481G01011
 Wipro Ltd.,Information Technology,WIPRO,EQ,INE075A01022
+Dummy Ltd.,GOLD,GD,EQ,INE628A01007

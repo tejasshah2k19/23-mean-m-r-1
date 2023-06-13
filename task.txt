@@ -158,6 +158,7 @@ root_dir
 -----------------------------------------------------------------
 npm i csv-reader
 
+api -> call -> .csv read -> unique industry name -> db save 
 
 
 

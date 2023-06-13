@@ -1,6 +1,6 @@
 const fs = require("fs")
 const CsvReader = require("csv-reader");
-  
+const IndustryModel = require("../model/industryModel")  
 
 
 
@@ -29,6 +29,12 @@ module.exports.uploadIndustry = async function(){
     //seed ind_nifty50list.csv 
     let industryArray = []
     let myFile = fs.createReadStream("./seed/ind_nifty50list.csv","utf8")
+    let myDataFromDb =[] 
+    
+    IndustryModel.find().then(data=>{
+        myDataFromDb = data
+  
+    })
 
     let promise = new Promise((resolve,reject)=>{
         myFile.pipe(new CsvReader())
@@ -41,7 +47,27 @@ module.exports.uploadIndustry = async function(){
             console.log(industryArray);
             console.log("\n"+industryArray.length);
             let industryJson = []
+           
+            //a => db{1,2,3,4,5,6,7} 
+            //b => file{2,4,7,8,9,10} 
+            //c => {8,9,10}{b-a}
+            
+            //b-a 
+            console.log("dbLength ",myDataFromDb.length);
+            console.log("****"+myDataFromDb);//b 
+
+            for(i=0;i<myDataFromDb.length;i++){
+                if(industryArray.indexOf(myDataFromDb[i].name.toLowerCase()) != -1 ){ 
+                    delete industryArray[industryArray.indexOf(myDataFromDb[i].name)]   
+
+                }
+            } 
+           
+            //
             industryArray.forEach(item=>industryJson.push({"name":item}))
+            console.log("=====>");
+            console.log(industryJson);
+           
 
             resolve(industryJson) //return 
         })     
@@ -52,3 +78,42 @@ module.exports.uploadIndustry = async function(){
 }
 
  
+
+
+//equity 
+module.exports.uploadEquity = async function(){
+    //seed ind_nifty50list.csv 
+    let eqArray = []  // {name,isin,industryfk,XXXX,XXX} 
+    let myFile = fs.createReadStream("./seed/ind_nifty50list.csv","utf8")
+     
+
+    let promise = new Promise((resolve,reject)=>{
+        myFile.pipe(new CsvReader())
+        .on('data',function(row){
+
+
+                let industryName = row[1] 
+                IndustryModel.findOne({name:industryName}).then(data=>{
+                    if(data){
+                        let eq = {name:row[0],symbol:row[2],isin:row[4],industry:data._id} 
+                        eqArray.push(eq);                       
+                    }
+                })
+
+               
+        })
+        .on('end',function(){
+              
+
+            resolve(eqArray) //return 
+        })     
+    })
+   let data = await promise;   
+    console.log("THE END");
+    return data;
+}
+
+
+
+
+
