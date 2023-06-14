@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const productController = require("./controller/productControllerDb")
 const categoryController = require("./controller/categoryController")
 const industryController = require("./controller/industryController")
+const equityController = require("./controller/equityController")
 
 const app = express()
 
@@ -34,6 +35,10 @@ app.get("/categories",categoryController.getAllCategory)
 
 //industry Routes 
 app.post("/industry",industryController.uploadIndustry) 
+
+//equity routes
+app.post("/equity",equityController.uploadEquity)
+app.get("/equity",equityController.getAllEquity)
 
 app.listen(9999)
 
