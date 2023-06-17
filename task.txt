@@ -160,5 +160,13 @@ npm i csv-reader
 
 api -> call -> .csv read -> unique industry name -> db save 
 
+----------------------------------------------------------
+file uploading -> image , audio , video , exe , pdf --> file 
 
+image / pdf / extension 
 
+size -> 5mb 10mb 
+
+count -> 10 file 
+
+multer -> 

@@ -6,8 +6,7 @@ const CsvReaderService  = require("../services/csvreader")
 module.exports.uploadEquity = async function(req,res){
 
     let allEquity = await CsvReaderService.uploadEquity()
-    console.log("allEquity => ");
-    console.log(allEquity);
+ 
 
     EquityModel.insertMany(allEquity).then(data=>{
         res.json({msg:"Equity uploaded",data:data,"status":200})

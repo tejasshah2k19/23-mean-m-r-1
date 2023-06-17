@@ -96,10 +96,8 @@ module.exports.uploadEquity = async function(){
         industryDb = data; 
     })
 
-    EquityModel.find({},{_id:0,name:1}).then(data=>{
+    await EquityModel.find({},{_id:0,name:1}).then(data=>{
         data.forEach(item=>equityDb.push(item.name))
-        console.log("equityDb");
-        console.log(equityDb);  // [x,y,z,f,gh]
     })
 
     let promise = new Promise((resolve,reject)=>{
@@ -107,9 +105,11 @@ module.exports.uploadEquity = async function(){
         .on('data',function(row){
 
                 let industryName = row[1] // id -> industryDb
-
+                console.log("equityDb");
+                console.log(equityDb);  // [x,y,z,f,gh]
+            
                 for(let i=0;i<industryDb.length;i++){
-                    if(industryDb[i].name.toLowerCase() == industryName.toLowerCase()   && eqArray.indexOf(row[0].toLowerCase()) == -1 ){
+                    if(industryDb[i].name.toLowerCase() == industryName.toLowerCase()   && equityDb.indexOf(row[0].toLowerCase()) == -1 ){
 
                         let eq = {name:row[0],symbol:row[2],isin:row[4],industryId:industryDb[i]._id} 
                         eqArray.push(eq); 
