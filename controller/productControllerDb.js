@@ -39,6 +39,7 @@ module.exports.getAllProducts = function (req, res) {
     ProductModel.find().populate("categoryId").exec().then((data) => {
         res.json({ "msg": "Product list", "data": data, "rcode": 200 })
     }).catch((err) => {
+        console.log(err);
         res.json({ "msg": "SMW", "rcode": -9, "data": err })
     })
 }
