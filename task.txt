@@ -170,3 +170,48 @@ size -> 5mb 10mb
 count -> 10 file 
 
 multer -> 
+
+public url -> 
+    signup
+    login 
+
+private -> {authentication} {authorization}*
+    addcategory 
+    list category
+    add product 
+------------------------------------------------------------------------------
+
+x-developer :
+		mean-21 
+			1
+			2
+			3 
+		local-repo 
+		login->push
+		pull->forgetpassword
+					remote-repo
+					login,forgetpassword 
+y-developer :
+		local-repo  
+		pull -> login 
+		forgetpassword -> push 
+
+
+
+git init 
+
+git add [][][] 
+
+git commit -m "XXX" [] [] [] 
+
+git push origin master 
+
+
+
+git pull origin master 
+
+
+-------------------------------------------------
+
+http://localhost:9999/getAllProducts
+
