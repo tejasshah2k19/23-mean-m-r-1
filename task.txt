@@ -215,3 +215,15 @@ git pull origin master
 
 http://localhost:9999/getAllProducts
 
+live -> 
+
+local -> 
+
+deploy -> server vps -> sas -> render 
+
+1) db-> live 
+2) github 
+
+render ->
+
+

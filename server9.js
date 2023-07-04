@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const productRoute = require("./routes/product.routes")
+const categoryRoute = require("./routes/category.routes")
 const mongoose = require("mongoose")
 const categoryController = require("./controller/categoryController")
 //middle 
@@ -12,8 +13,7 @@ app.use(express.json())
 app.use("/admin",productRoute)
  
 //category routes 
-app.post("/category",categoryController.addCategory)
-app.get("/categories",categoryController.getAllCategory) 
+app.use("/admin",categoryRoute)
 
 //http://localhost:9999/admin/
 
